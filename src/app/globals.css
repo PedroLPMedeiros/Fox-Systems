@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fox-black: #000;
+  --color-fox-red: #b91c1c;
+  --color-fox-gray: #18181b;
+}
+
+:root {
+  background-color: var(--color-fox-black);
+  color: white;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
