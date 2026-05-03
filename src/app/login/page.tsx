@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { AuthLayout } from '@/src/componets/AuthLayout';
 import { Input } from '@/src/componets/Input';
 import Link from 'next/link';
+import { useRouter } from 'next/dist/client/components/navigation';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,6 +14,11 @@ export default function LoginPage() {
     e.preventDefault();
     // Chamada para API
     console.log("Login:", { email, password });
+    if (email.includes('instrutor')){
+        router.push('/dashboard/instrutor');
+    } else {
+        router.push('/dashboard/aluno');
+    }
   };
 
   return (
