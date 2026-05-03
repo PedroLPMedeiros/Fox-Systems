@@ -1,26 +1,34 @@
 "use client"
 import { Accordion } from '@/src/componets/Accordion';
+import { Footer } from '@/src/componets/Footer';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AlunoDashboard() {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    router.push('/login');
+  };
+
+
   return (
-    <div className="min-h-screen bg-fox-black text-white pb-10">
+    <div className="min-h-screen bg-fox-black text-white ">
       {/* Header */}
       <header className="flex justify-between items-center py-2 px-8 border-b border-zinc-900">
         <img src="/Logo_FoxFit.png" alt="Logo" className="h-20" />
-        <button className="flex items-center gap-2 text-zinc-400 hover:text-white transition cursor-pointer">
+        <button className="flex items-center gap-2 text-zinc-400 hover:text-white transition cursor-pointer" onClick={handleLogout}>
           Sair da Conta <span>→</span>
         </button>
       </header>
 
-      <main className="max-w-5xl mx-auto p-6 space-y-8">
+      <main className="max-w-5xl mx-auto p-6 space-y-8 ">
         
         {/* Card de Perfil (Informações Pessoais) */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-zinc-900/50 p-6 rounded-xl border border-zinc-800">
           <div className="flex flex-col items-center text-center space-y-3">
-            <div className="w-32 h-32 rounded-full border-2 border-fox-red overflow-hidden relative">
+            <div className="w-32 h-32 rounded-full border-2 border-zinc-800 overflow-hidden relative">
               <img src="/avatar.png" alt="Perfil" className="object-cover w-full h-full" />
-              <button className="absolute bottom-0 right-0 bg-zinc-800 p-1 rounded-full border border-zinc-700">✎</button>
             </div>
             <div>
               <h2 className="font-bold text-xl">Fulano da Silva</h2>
@@ -35,7 +43,7 @@ export default function AlunoDashboard() {
           <div className="md:col-span-2 space-y-4 text-sm text-zinc-300">
             <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
               <h3 className="font-bold text-white uppercase tracking-wider">Informações Pessoais</h3>
-              <button className="text-zinc-500 hover:text-white">✎</button>
+              <button className="text-zinc-500 hover:text-white cursor-pointer">✎</button>
             </div>
             <p><strong>Altura:</strong> 170cm | <strong>Peso:</strong> 70kg | <strong>Gênero:</strong> Masculino</p>
             <p><strong className="text-white">Observação Médica:</strong> Não fazer exercícios que exijam muito dos braços e ombros.</p>
@@ -81,6 +89,7 @@ export default function AlunoDashboard() {
         </section>
 
       </main>
+      <Footer></Footer>
     </div>
   );
 }
