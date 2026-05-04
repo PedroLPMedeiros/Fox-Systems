@@ -12,7 +12,7 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Chamada para API
+    
     console.log("Login:", { email, password });
     if (email.includes('instrutor')){
         router.push('/dashboard/instrutor');

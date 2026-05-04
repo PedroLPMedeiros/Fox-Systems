@@ -62,7 +62,7 @@ export default function InstrutorDashboard() {
             Pesquisar Alunos
           </h2>
           
-          {/* Barra de Busca conforme o Figma */}
+         
           <div className="relative max-w-2xl mx-auto">
             <input 
               type="text"
@@ -73,7 +73,7 @@ export default function InstrutorDashboard() {
             />
             <span className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-500">🔍</span>
             
-            {/* Resultados da Busca (Dropdown) */}
+            
             {busca && !alunoSelecionado && (
               <div className="absolute w-full mt-2 bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden z-10 shadow-2xl">
                 {alunosFiltrados.map(aluno => (
@@ -91,7 +91,7 @@ export default function InstrutorDashboard() {
           </div>
         </section>
 
-        {/* Exibição do Aluno Selecionado */}
+        
         {alunoSelecionado && (
           <section className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-zinc-900/50 p-6 rounded-xl border border-white mb-8">

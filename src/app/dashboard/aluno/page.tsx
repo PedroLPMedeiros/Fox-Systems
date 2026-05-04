@@ -14,7 +14,6 @@ export default function AlunoDashboard() {
 
   return (
     <div className="min-h-screen bg-fox-black text-white ">
-      {/* Header */}
       <header className="flex justify-between items-center py-2 px-8 border-b border-zinc-900">
         <img src="/Logo_FoxFit.png" alt="Logo" className="h-20" />
         <button className="flex items-center gap-2 text-zinc-400 hover:text-white transition cursor-pointer" onClick={handleLogout}>
@@ -74,7 +73,6 @@ export default function AlunoDashboard() {
         <section className="mt-16 pt-10 border-t border-zinc-900">
           <h3 className="text-2xl font-bold text-center mb-10 uppercase">Atividades Disponíveis</h3>
           <div className="flex overflow-x-auto snap-x snap-mandatory pb-6 gap-6 md:grid md:grid-cols-3 lg:grid-cols-4 xl:gap-8 no-scrollbar">
-             {/* Aqui você pode mapear as atividades como Musculação, Muay-Thai etc. */}
              <ActivityCard title="Musculação" img="/musculacao.png" />
              <ActivityCard title="Muay-Thai" img="/muay-thai.png" />
              <ActivityCard title="Pilates" img="/pilates.png" />
@@ -94,6 +92,7 @@ export default function AlunoDashboard() {
   );
 }
 
+{/* Mock de treinos para simular o banco de dados */}
 const treinosMock = [
   { id: 'A', nome: 'Treino A', exercicios: ['Supino Reto - 3x12', 'Crucifixo - 3x15', 'Tríceps Corda - 4x10'] },
   { id: 'B', nome: 'Treino B', exercicios: ['Leg Press 45 - 3x12', 'Cadeira Extensora - 3x15', 'Agachamento - 4x10'] },
