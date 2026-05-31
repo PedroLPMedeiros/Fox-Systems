@@ -4,15 +4,28 @@ import { useState } from 'react';
 interface AccordionProps {
   title: string;
   children: React.ReactNode;
+  isOpen?: boolean;
+  onToggle?: () => void;
 }
 
-export function Accordion({ title, children }: AccordionProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export function Accordion({ title, children, isOpen: controlledIsOpen, onToggle }: AccordionProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+
+  const handleToggle = () => {
+    if (onToggle) {
+      onToggle();
+    } else {
+      setInternalIsOpen(!internalIsOpen);
+    }
+  };
 
   return (
     <div className="border border-zinc-800 rounded-lg overflow-hidden bg-zinc-900/50 mb-4 transition-all">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         className="w-full p-4 flex justify-between items-center hover:bg-zinc-800 transition-colors group cursor-pointer"
       >
         <span className="font-bold text-lg uppercase tracking-tight">
